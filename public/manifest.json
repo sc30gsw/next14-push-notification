@@ -4,8 +4,8 @@
     "display": "browser",
     "scope": "/",
     "start_url": "/",
-    "name": "Push Notification",
-    "short_name": "Push Notification",
+    "name": "next14-push-notification",
+    "short_name": "push-notification",
     "icons": [
         {
             "src": "/icon-192x192.png",
