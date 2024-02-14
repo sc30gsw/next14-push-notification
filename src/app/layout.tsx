@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
+import { OneSignalInitial } from './components/OneSignalInitial'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,7 +15,15 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     <html lang="ja">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="notification-icon" href="/icon-192x192.png" />
+        <meta name="theme-color" content="#4a90e2" />
+      </head>
+      <body className={inter.className}>
+        <OneSignalInitial />
+        {children}
+      </body>
     </html>
   )
 }
