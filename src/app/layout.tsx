@@ -22,7 +22,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
       </head>
       <body className={inter.className}>
         <OneSignalInitial />
-        {children}
+        <main className='min-h-dvh w-screen'>{children}</main>
       </body>
     </html>
   )
