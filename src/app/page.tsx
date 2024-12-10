@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className='max-w-screen-md mx-auto flex flex-col items-center my-6'>
     <Tabs aria-label="Recipe App" className="w-full">
-      <Tabs.List>
+      <Tabs.List className={'border-b'}>
         <Tabs.Tab id="r">Recipes</Tabs.Tab>
         <Tabs.Tab id="i">Ingredients</Tabs.Tab>
         <Tabs.Tab id="m">Meal Plans</Tabs.Tab>

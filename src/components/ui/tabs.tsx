@@ -43,11 +43,11 @@ const Tabs = (props: TabsProps) => {
 }
 
 const tabListStyles = tv({
-  base: 'flex forced-color-adjust-none',
+  base: 'flex forced-color-adjust-none relative',
   variants: {
     orientation: {
-      horizontal: 'flex-row gap-x-5 border-b border-border',
-      vertical: 'flex-col items-start gap-y-4 border-l',
+      horizontal: 'flex-row gap-x-2',
+      vertical: 'flex-col items-start gap-y-4',
     },
   },
 })
@@ -68,16 +68,16 @@ const List = <T extends object>(props: TabListProps<T>) => {
 
 const tabStyles = tv({
   base: [
-    'relative flex whitespace-nowrap cursor-default items-center rounded-full text-sm font-medium outline-none transition hover:text-fg [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:mr-2',
+    'relative flex whitespace-nowrap cursor-default items-center text-sm font-medium outline-none transition hover:text-fg [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:mr-2',
     // hor
     'group-orientation-vertical:w-full group-orientation-vertical:py-0 group-orientation-vertical:pl-4 group-orientation-vertical:pr-2',
     // ver
-    'group-orientation-horizontal:pb-3',
+    'group-orientation-horizontal:px-4 group-orientation-horizontal:py-2 rounded-t-3xl border border-gray-200 border-b-0 relative',
   ],
   variants: {
     isSelected: {
-      false: 'text-muted-fg',
-      true: 'text-fg',
+      false: 'text-muted-fg bg-transparent',
+      true: 'text-fg bg-white after:absolute after:bottom-[-1px] after:left-0 after:right-0 after:h-[1px] after:bg-white',
     },
     isFocused: { false: 'ring-0', true: 'text-fg' },
     isDisabled: {
@@ -97,30 +97,13 @@ const Tab = ({ children, ...props }: TabProps) => {
         }),
       )}
     >
-      {({ isSelected }) => (
-        <>
-          {children as React.ReactNode}
-          {isSelected && (
-            <motion.span
-              className={cn(
-                'absolute rounded bg-fg',
-                // horizontal
-                'group-orientation-horizontal:inset-x-0 group-orientation-horizontal:-bottom-px group-orientation-horizontal:h-0.5 group-orientation-horizontal:w-full',
-                // vertical
-                'group-orientation-vertical:left-0 group-orientation-vertical:h-[calc(100%-10%)] group-orientation-vertical:w-0.5 group-orientation-vertical:transform',
-              )}
-              layoutId="current-selected"
-              transition={{ type: 'spring', stiffness: 500, damping: 40 }}
-            />
-          )}
-        </>
-      )}
+      {children as React.ReactNode}
     </TabPrimitive>
   )
 }
 
 const tabPanelStyles = tv({
-  base: 'flex-1 text-sm text-fg',
+  base: 'flex-1 text-sm text-fg bg-white border border-gray-200 p-4',
   variants: {
     isFocusVisible: {
       true: 'outline-none',
