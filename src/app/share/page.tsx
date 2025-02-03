@@ -1,5 +1,14 @@
-import { ShareButton } from '@/features/sns-share/components/share-button'
-import React from 'react'
+'use client'
+
+import dynamic from 'next/dynamic'
+
+const ShareButton = dynamic(
+  () =>
+    import('../../features/sns-share/components/share-button').then(
+      (mod) => mod.ShareButton,
+    ),
+  { ssr: false },
+)
 
 const SharePage = () => {
   return (
