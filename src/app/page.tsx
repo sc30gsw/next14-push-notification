@@ -1,4 +1,5 @@
 import { AppTabs } from '@/features/home/app-tabs'
+import { LoginLink } from '@/features/home/login-link'
 import { auth0 } from '@/lib/auth0'
 
 const Home = async () => {
@@ -19,7 +20,7 @@ const Home = async () => {
             <a href="/auth/logout">Log out</a>
           </div>
         ) : (
-          <a href="/auth/login">Log in</a>
+          <LoginLink />
         )}
       </AppTabs>
     </div>
