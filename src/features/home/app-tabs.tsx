@@ -1,12 +1,25 @@
 'use client'
 
 import { Tabs } from '@/components/ui'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 
 export function AppTabs({
   children,
   isAuthenticated,
 }: { children: ReactNode; isAuthenticated: boolean }) {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setMounted(true)
+    }
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
+
+  const url = new URL(location.href)
+
   return (
     <Tabs aria-label="Recipe App" className="w-full">
       <Tabs.List className={'border-b'}>
@@ -26,7 +39,7 @@ export function AppTabs({
       <Tabs.Panel id="m">
         Here's your{' '}
         <a
-          href="https://my-first-auth0.vercel.app/auth/login"
+          href={`https://my-first-auth0.vercel.app/auth/login?redirectTo=${url.href}`}
           target="_blank"
           rel="noreferrer"
         >
