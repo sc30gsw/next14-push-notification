@@ -3,7 +3,10 @@
 import { Tabs } from '@/components/ui'
 import { ReactNode } from 'react'
 
-export function AppTabs({ children }: { children: ReactNode }) {
+export function AppTabs({
+  children,
+  isAuthenticated,
+}: { children: ReactNode; isAuthenticated: boolean }) {
   return (
     <Tabs aria-label="Recipe App" className="w-full">
       <Tabs.List className={'border-b'}>
@@ -14,10 +17,21 @@ export function AppTabs({ children }: { children: ReactNode }) {
       </Tabs.List>
       <Tabs.Panel id="r">{children}</Tabs.Panel>
       <Tabs.Panel id="i">
-        Check the list of ingredients needed for your chosen recipes.
+        {isAuthenticated ? (
+          <p>Authenticated</p>
+        ) : (
+          <p>Please log in to view your ingredients.</p>
+        )}
       </Tabs.Panel>
       <Tabs.Panel id="m">
-        Discover curated meal plans to simplify your weekly cooking.
+        Here's your{' '}
+        <a
+          href="https://my-first-auth0.vercel.app/auth/login"
+          target="_blank"
+          rel="noreferrer"
+        >
+          first app
+        </a>
       </Tabs.Panel>
       <Tabs.Panel id="v">
         Watch cooking videos to learn new techniques and recipes.

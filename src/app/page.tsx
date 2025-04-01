@@ -6,7 +6,8 @@ const Home = async () => {
 
   return (
     <div className="max-w-screen-md mx-auto flex flex-col items-center my-6">
-      <AppTabs>
+      <AppTabs isAuthenticated={!!session}>
+        <h1 className="text-2xl font-bold">Recipe App</h1>
         {session ? (
           <div>
             <p>
