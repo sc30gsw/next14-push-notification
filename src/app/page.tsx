@@ -1,5 +1,5 @@
 import { AppTabs } from '@/features/home/app-tabs'
-// import { auth0 } from '@/lib/auth0'
+import { auth0 } from '@/lib/auth0'
 
 const Home = async () => {
   const session = await auth0.getSession()
