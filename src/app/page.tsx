@@ -1,4 +1,5 @@
 import { AppTabs } from '@/features/home/app-tabs'
+import { Counter } from '@/features/home/counter'
 import { auth0 } from '@/lib/auth0'
 
 const Home = async () => {
@@ -22,6 +23,7 @@ const Home = async () => {
           <a href="/auth/login">Log in</a>
         )}
       </AppTabs>
+      <Counter />
     </div>
   )
 }

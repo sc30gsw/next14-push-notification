@@ -1,3 +1,4 @@
+import { Providers } from '@/components/providers'
 import './globals.css'
 
 import type { Metadata } from 'next'
@@ -20,7 +21,9 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
         <meta name="theme-color" content="#4a90e2" />
       </head>
       <body className={inter.className}>
-        <main className="min-h-dvh w-screen">{children}</main>
+        <Providers>
+          <main className="min-h-dvh w-screen">{children}</main>
+        </Providers>
       </body>
     </html>
   )

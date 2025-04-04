@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^4.3.0",
+    "@location-state/core": "^1.2.2",
     "framer-motion": "^11.13.3",
     "justd-icons": "^1.9.1",
     "next": "14.1.0",

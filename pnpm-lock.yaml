@@ -11,6 +11,9 @@ importers:
       '@auth0/nextjs-auth0':
         specifier: ^4.3.0
         version: 4.3.0(next@14.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@location-state/core':
+        specifier: ^1.2.2
+        version: 1.2.2(react@18.3.1)
       framer-motion:
         specifier: ^11.13.3
         version: 11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -198,6 +201,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@location-state/core@1.2.2':
+    resolution: {integrity: sha512-Xv4QLPUut7bURF0sZ8g3Ieya8nV9PP22PWW8rTS0k8Wukzdt+RITN8PLe+V4q26KNDtGV+M1nC8S1NtWYI5Mhw==}
+    peerDependencies:
+      react: ^18.2.0
 
   '@next/env@14.1.0':
     resolution: {integrity: sha512-Py8zIo+02ht82brwwhTg36iogzFqGLPXlRGKQw5s+qP/kMNc4MAyDeEwBKDijk6zTIbegEgu8Qy7C1LboslQAw==}
@@ -1587,6 +1595,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@location-state/core@1.2.2(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
 
   '@next/env@14.1.0': {}
 
